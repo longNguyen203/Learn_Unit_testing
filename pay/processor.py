@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 class PaymentProcessor:
     
     """ Xử lý thanh toán """
@@ -9,7 +8,7 @@ class PaymentProcessor:
         self.api_key = api_key
         
     def _check_api_key(self) -> bool: # Kiểm tra xem api_key có rỗng không
-        return self.api_key == ""
+        return self.api_key != ""
         
     def charge(self, card: str, month: int, year: int, amount: int) -> None: # tham số amount đại diện cho số tiền cần thanh toán
         if not self.validate_card(card, month, year): # Nếu thẻ không dùng được
@@ -23,7 +22,7 @@ class PaymentProcessor:
         return self.luhn_checksum(card) and datetime(year, month, 1) > datetime.now()
     
     def luhn_checksum(self, card_number: str) -> bool: # Phương thức kiểm tra sự hợp lệ cả số thẻ
-        def digits_of(card_nr: str) -> list: # Phương thức này nhận vào số thẻ của thẻ thanh toán
+        def digits_of(card_nr: str) -> list[int]: # Phương thức này nhận vào số thẻ của thẻ thanh toán
             return [int(d) for d in card_nr] # trả về một list các số của dãy thẻ
         
         digits = digits_of(card_number)

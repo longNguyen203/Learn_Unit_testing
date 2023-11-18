@@ -8,6 +8,6 @@ def pay_order(order: Order) -> None: # Tham số đầu vào là một đơn hà
     card = input("please enter your card number: ")
     month = int(input("please enter the card expiry month: "))
     year = int(input("please enter the card expiry year: "))
-    payment_processor = PaymentProcessor("6cfb67f3-6281-4031-b893-ea85db0dce20") # PaymentProcessor nhận vào api key
+    payment_processor = PaymentProcessor(api_key="6cfb67f3-6281-4031-b893-ea85db0dce20") # PaymentProcessor nhận vào api key
     payment_processor.charge(card, month, year, amount=order.total) # kiểm tra và in ra số tiền cần thanh toán
     order.pay() # Cập nhật lại trạng thái đơn hàng

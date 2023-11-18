@@ -11,7 +11,9 @@ def main():
     # line_items là một list các sản phẩm
     
     order.line_items.append(LineItem(name="Shoes", price=100_00, quantity=2))
-    order.line_items.append(LineItem(name="Hat", price=50_00))
+    order.line_items.append(LineItem(name="Hat", price=50_00, quantity=5))
+    order.line_items.append(LineItem(name="Chocopie", price=80_00))
+    
     pay_order(order)
     
     

@@ -16,7 +16,7 @@ class LineItem: # Class đại diện cho 1 sản phẩm trong đơn hàng
     # Ba biến này hoặc trường(field) giống với các thuộc tính trong 1 class bình thường
     
     @property
-    def total(self) -> int:
+    def total(self) -> int: # Phương thức trả về số tiền cần thanh toán cho 1 sản phẩm ứng với số lượng của sản phẩm đó
         return self.price * self.quantity
     
     
